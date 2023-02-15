@@ -1,0 +1,12 @@
+{"level":"info","message":"App is listening on port 80","timestamp":"2023-02-15T19:37:09.719Z"}
+{"level":"info","message":"Connected to the database...","timestamp":"2023-02-15T19:37:09.803Z"}
+{"level":"info","message":"App is listening on port 80","timestamp":"2023-02-15T19:37:31.067Z"}
+{"level":"info","message":"Connected to the database...","timestamp":"2023-02-15T19:37:31.134Z"}
+{"message":"res.cookie is not a function","stack":"TypeError: res.cookie is not a function\n    at attachCookiesToResponse (/Users/ifeanyi-ibe/Desktop/tech-recruiter/utils/jwt.js:9:7)\n    at register (/Users/ifeanyi-ibe/Desktop/tech-recruiter/controllers/authController.js:30:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","level":"error","timestamp":"2023-02-15T19:42:08.045Z"}
+{"level":"info","message":"App is listening on port 80","timestamp":"2023-02-15T19:45:33.908Z"}
+{"level":"info","message":"Connected to the database...","timestamp":"2023-02-15T19:45:33.943Z"}
+{"message":"Email already exists","stack":"Error: Email already exists\n    at register (/Users/ifeanyi-ibe/Desktop/tech-recruiter/controllers/authController.js:14:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400,"level":"error","timestamp":"2023-02-15T19:45:43.688Z"}
+{"message":"cookieParser(\"secret\") required for signed cookies","stack":"Error: cookieParser(\"secret\") required for signed cookies\n    at res.cookie (/Users/ifeanyi-ibe/Desktop/tech-recruiter/node_modules/express/lib/response.js:860:11)\n    at attachCookiesToResponse (/Users/ifeanyi-ibe/Desktop/tech-recruiter/utils/jwt.js:9:7)\n    at register (/Users/ifeanyi-ibe/Desktop/tech-recruiter/controllers/authController.js:30:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","level":"error","timestamp":"2023-02-15T19:49:06.222Z"}
+{"level":"info","message":"App is listening on port 80","timestamp":"2023-02-15T19:52:34.932Z"}
+{"level":"info","message":"Connected to the database...","timestamp":"2023-02-15T19:52:35.012Z"}
+{"message":"Email already exists","stack":"Error: Email already exists\n    at register (/Users/ifeanyi-ibe/Desktop/tech-recruiter/controllers/authController.js:14:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","statusCode":400,"level":"error","timestamp":"2023-02-15T19:52:38.417Z"}
