@@ -7,6 +7,7 @@ const { logger } = require("./middleware/logger");
 const helmet = require("helmet");
 const winston = require("winston");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -16,6 +17,28 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(logger);
+app.use(
+	cors({
+		origin: ["https://tech-recruitr-frontend.onrender.com"],
+	})
+);
+app.use((req, res, next) => {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept"
+	);
+
+	if (req.method == "OPTIONS") {
+		res.header(
+			"Access-Control-Allow-Methods",
+			"PUT, POST, PATCH, DELETE, GET"
+		);
+		return res.status(200).json({});
+	}
+
+	return next();
+});
 
 require("./startup/logging")();
 require("./startup/routes")(app);
