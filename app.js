@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(logger);
-app.use();
+app.use(cors);
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
