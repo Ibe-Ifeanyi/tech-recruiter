@@ -19,10 +19,7 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(logger);
 app.use(cors);
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://tech-recruitr-frontend.onrender.com"
-  );
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
