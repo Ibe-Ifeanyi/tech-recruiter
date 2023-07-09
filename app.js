@@ -14,12 +14,14 @@ const app = express();
 const { PORT } = process.env;
 
 app.use(helmet());
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
+app.use(express.urlencoded({ limit: "25mb" }));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(logger);
 app.use(
 	cors({
-		origin: ["https://tech-recruitr-frontend.onrender.com"],
+		//origin: ["https://tech-recruitr-frontend.onrender.com"],
+		origin: "http://localhost:3000",
 	})
 );
 app.use((req, res, next) => {

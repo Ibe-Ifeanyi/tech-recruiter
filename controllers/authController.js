@@ -6,6 +6,8 @@ const { v4: uuid } = require("uuid");
 const bcrypt = require("bcrypt");
 const CustomError = require("../errors");
 const { FRONTEND_URL } = process.env;
+const uploader = require("../utils/uploadImage");
+const getGoogleOauthUrl = require("../utils/getGoogleOauthUrl");
 
 const {
 	attachCookiesToResponse,
@@ -158,6 +160,23 @@ const forgotPassword = async (req, res) => {
 	res.sendStatus(200);
 };
 
+const uploadImage = async (req, res) => {
+	const { image, userId } = req.body;
+	try {
+		const url = await uploader(image);
+
+		await User.updateOne(
+			{ _id: ObjectId(userId) },
+			{ $set: { imageUrl: url } },
+			{ new: true }
+		);
+
+		res.send(url);
+	} catch (err) {
+		res.status(500).send(err.message);
+	}
+};
+
 const resetPassword = async (req, res) => {
 	const { password, passwordResetCode } = req.body;
 
@@ -176,6 +195,11 @@ const resetPassword = async (req, res) => {
 	res.sendStatus(200);
 };
 
+const getOauthUrl = async (req, res) => {
+	const url = getGoogleOauthUrl();
+	res.status(200).json({ url });
+};
+
 module.exports = {
 	register,
 	login,
@@ -183,4 +207,6 @@ module.exports = {
 	verifyEmail,
 	forgotPassword,
 	resetPassword,
+	uploadImage,
+	getOauthUrl,
 };
