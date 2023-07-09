@@ -20,8 +20,7 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(logger);
 app.use(
 	cors({
-		//origin: ["https://tech-recruitr-frontend.onrender.com"],
-		origin: "http://localhost:3000",
+		origin: ["https://tech-recruitr-frontend.onrender.com"],
 	})
 );
 app.use((req, res, next) => {
